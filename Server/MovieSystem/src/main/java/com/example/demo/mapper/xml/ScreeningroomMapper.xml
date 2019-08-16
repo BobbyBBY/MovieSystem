@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ScreeningroomMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Screeningroom">
+    <result column="screeningroom_id" jdbcType="INTEGER" property="screeningroomId" />
+    <result column="screeningroom_name" jdbcType="VARCHAR" property="screeningroomName" />
+    <result column="screeningroom_status" jdbcType="INTEGER" property="screeningroomStatus" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.demo.pojo.Screeningroom">
+    insert into screeningroom (screeningroom_id, screeningroom_name, 
+      screeningroom_status)
+    values (#{screeningroomId,jdbcType=INTEGER}, #{screeningroomName,jdbcType=VARCHAR}, 
+      #{screeningroomStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.Screeningroom">
+    insert into screeningroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="screeningroomId != null">
+        screeningroom_id,
+      </if>
+      <if test="screeningroomName != null">
+        screeningroom_name,
+      </if>
+      <if test="screeningroomStatus != null">
+        screeningroom_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="screeningroomId != null">
+        #{screeningroomId,jdbcType=INTEGER},
+      </if>
+      <if test="screeningroomName != null">
+        #{screeningroomName,jdbcType=VARCHAR},
+      </if>
+      <if test="screeningroomStatus != null">
+        #{screeningroomStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

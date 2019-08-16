@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">天天电影</string>
+    <drawable name="clr_normal">#3C8A7A</drawable>
+    <drawable name="clr_pressed">#1C6A5A</drawable>
+    <string name="not_blinding">还没有登陆</string>
+
+</resources>

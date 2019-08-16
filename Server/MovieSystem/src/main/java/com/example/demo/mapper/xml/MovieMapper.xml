@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.MovieMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Movie">
+    <result column="movie_id" jdbcType="VARCHAR" property="movieId" />
+    <result column="harddisk_id" jdbcType="VARCHAR" property="harddiskId" />
+    <result column="movie_name" jdbcType="VARCHAR" property="movieName" />
+    <result column="movie_doubanid" jdbcType="VARCHAR" property="movieDoubanid" />
+    <result column="movie_onlinetime" jdbcType="TIMESTAMP" property="movieOnlinetime" />
+    <result column="movie_offlinetime" jdbcType="TIMESTAMP" property="movieOfflinetime" />
+    <result column="movie_duration" jdbcType="INTEGER" property="movieDuration" />
+    <result column="movie_status" jdbcType="INTEGER" property="movieStatus" />
+    <result column="movie_cover" jdbcType="VARCHAR" property="movieCover" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.example.demo.pojo.Movie">
+    <result column="movie_introduction" jdbcType="LONGVARCHAR" property="movieIntroduction" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    movie_introduction
+  </sql>
+  <insert id="insert" parameterType="com.example.demo.pojo.Movie">
+    insert into movie (movie_id, harddisk_id, movie_name, 
+      movie_doubanid, movie_onlinetime, movie_offlinetime, 
+      movie_duration, movie_status, movie_cover, 
+      movie_introduction)
+    values (#{movieId,jdbcType=VARCHAR}, #{harddiskId,jdbcType=VARCHAR}, #{movieName,jdbcType=VARCHAR}, 
+      #{movieDoubanid,jdbcType=VARCHAR}, #{movieOnlinetime,jdbcType=TIMESTAMP}, #{movieOfflinetime,jdbcType=TIMESTAMP}, 
+      #{movieDuration,jdbcType=INTEGER}, #{movieStatus,jdbcType=INTEGER}, #{movieCover,jdbcType=VARCHAR}, 
+      #{movieIntroduction,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.Movie">
+    insert into movie
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="movieId != null">
+        movie_id,
+      </if>
+      <if test="harddiskId != null">
+        harddisk_id,
+      </if>
+      <if test="movieName != null">
+        movie_name,
+      </if>
+      <if test="movieDoubanid != null">
+        movie_doubanid,
+      </if>
+      <if test="movieOnlinetime != null">
+        movie_onlinetime,
+      </if>
+      <if test="movieOfflinetime != null">
+        movie_offlinetime,
+      </if>
+      <if test="movieDuration != null">
+        movie_duration,
+      </if>
+      <if test="movieStatus != null">
+        movie_status,
+      </if>
+      <if test="movieCover != null">
+        movie_cover,
+      </if>
+      <if test="movieIntroduction != null">
+        movie_introduction,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="movieId != null">
+        #{movieId,jdbcType=VARCHAR},
+      </if>
+      <if test="harddiskId != null">
+        #{harddiskId,jdbcType=VARCHAR},
+      </if>
+      <if test="movieName != null">
+        #{movieName,jdbcType=VARCHAR},
+      </if>
+      <if test="movieDoubanid != null">
+        #{movieDoubanid,jdbcType=VARCHAR},
+      </if>
+      <if test="movieOnlinetime != null">
+        #{movieOnlinetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="movieOfflinetime != null">
+        #{movieOfflinetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="movieDuration != null">
+        #{movieDuration,jdbcType=INTEGER},
+      </if>
+      <if test="movieStatus != null">
+        #{movieStatus,jdbcType=INTEGER},
+      </if>
+      <if test="movieCover != null">
+        #{movieCover,jdbcType=VARCHAR},
+      </if>
+      <if test="movieIntroduction != null">
+        #{movieIntroduction,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ScreeningMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Screening">
+    <result column="screening_id" jdbcType="INTEGER" property="screeningId" />
+    <result column="movie_id" jdbcType="VARCHAR" property="movieId" />
+    <result column="screeningroom_id" jdbcType="INTEGER" property="screeningroomId" />
+    <result column="screening_price" jdbcType="DOUBLE" property="screeningPrice" />
+    <result column="screening_starttime" jdbcType="TIMESTAMP" property="screeningStarttime" />
+    <result column="screening_specialeffect" jdbcType="INTEGER" property="screeningSpecialeffect" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.demo.pojo.Screening">
+    insert into screening (screening_id, movie_id, screeningroom_id, 
+      screening_price, screening_starttime, screening_specialeffect
+      )
+    values (#{screeningId,jdbcType=INTEGER}, #{movieId,jdbcType=VARCHAR}, #{screeningroomId,jdbcType=INTEGER}, 
+      #{screeningPrice,jdbcType=DOUBLE}, #{screeningStarttime,jdbcType=TIMESTAMP}, #{screeningSpecialeffect,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.Screening">
+    insert into screening
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="screeningId != null">
+        screening_id,
+      </if>
+      <if test="movieId != null">
+        movie_id,
+      </if>
+      <if test="screeningroomId != null">
+        screeningroom_id,
+      </if>
+      <if test="screeningPrice != null">
+        screening_price,
+      </if>
+      <if test="screeningStarttime != null">
+        screening_starttime,
+      </if>
+      <if test="screeningSpecialeffect != null">
+        screening_specialeffect,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="screeningId != null">
+        #{screeningId,jdbcType=INTEGER},
+      </if>
+      <if test="movieId != null">
+        #{movieId,jdbcType=VARCHAR},
+      </if>
+      <if test="screeningroomId != null">
+        #{screeningroomId,jdbcType=INTEGER},
+      </if>
+      <if test="screeningPrice != null">
+        #{screeningPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="screeningStarttime != null">
+        #{screeningStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="screeningSpecialeffect != null">
+        #{screeningSpecialeffect,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

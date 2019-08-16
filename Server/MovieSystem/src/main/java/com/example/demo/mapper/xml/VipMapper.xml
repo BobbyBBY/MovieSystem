@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.VipMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Vip">
+    <result column="vip_id" jdbcType="INTEGER" property="vipId" />
+    <result column="vip_name" jdbcType="VARCHAR" property="vipName" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.demo.pojo.Vip">
+    insert into vip (vip_id, vip_name)
+    values (#{vipId,jdbcType=INTEGER}, #{vipName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.Vip">
+    insert into vip
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vipId != null">
+        vip_id,
+      </if>
+      <if test="vipName != null">
+        vip_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vipId != null">
+        #{vipId,jdbcType=INTEGER},
+      </if>
+      <if test="vipName != null">
+        #{vipName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

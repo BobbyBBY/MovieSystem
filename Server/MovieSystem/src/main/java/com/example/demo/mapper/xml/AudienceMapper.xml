@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.AudienceMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Audience">
+    <result column="audience_phone" jdbcType="VARCHAR" property="audiencePhone" />
+    <result column="audience_vipstatus" jdbcType="INTEGER" property="audienceVipstatus" />
+    <result column="vip_id" jdbcType="INTEGER" property="vipId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.demo.pojo.Audience">
+    insert into audience (audience_phone, audience_vipstatus, 
+      vip_id)
+    values (#{audiencePhone,jdbcType=VARCHAR}, #{audienceVipstatus,jdbcType=INTEGER}, 
+      #{vipId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.Audience">
+    insert into audience
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="audiencePhone != null">
+        audience_phone,
+      </if>
+      <if test="audienceVipstatus != null">
+        audience_vipstatus,
+      </if>
+      <if test="vipId != null">
+        vip_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="audiencePhone != null">
+        #{audiencePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="audienceVipstatus != null">
+        #{audienceVipstatus,jdbcType=INTEGER},
+      </if>
+      <if test="vipId != null">
+        #{vipId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

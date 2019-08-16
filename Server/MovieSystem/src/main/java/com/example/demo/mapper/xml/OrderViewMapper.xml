@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.OrderViewMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.OrderView">
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="audience_phone" jdbcType="VARCHAR" property="audiencePhone" />
+    <result column="order_generatedtime" jdbcType="TIMESTAMP" property="orderGeneratedtime" />
+    <result column="order_totalprice" jdbcType="DOUBLE" property="orderTotalprice" />
+    <result column="order_ticketcount" jdbcType="INTEGER" property="orderTicketcount" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="movie_name" jdbcType="VARCHAR" property="movieName" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.demo.pojo.OrderView">
+    insert into order_view (order_id, audience_phone, order_generatedtime, 
+      order_totalprice, order_ticketcount, order_status, 
+      movie_name)
+    values (#{orderId,jdbcType=VARCHAR}, #{audiencePhone,jdbcType=VARCHAR}, #{orderGeneratedtime,jdbcType=TIMESTAMP}, 
+      #{orderTotalprice,jdbcType=DOUBLE}, #{orderTicketcount,jdbcType=INTEGER}, #{orderStatus,jdbcType=INTEGER}, 
+      #{movieName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.OrderView">
+    insert into order_view
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="audiencePhone != null">
+        audience_phone,
+      </if>
+      <if test="orderGeneratedtime != null">
+        order_generatedtime,
+      </if>
+      <if test="orderTotalprice != null">
+        order_totalprice,
+      </if>
+      <if test="orderTicketcount != null">
+        order_ticketcount,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="movieName != null">
+        movie_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="audiencePhone != null">
+        #{audiencePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="orderGeneratedtime != null">
+        #{orderGeneratedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderTotalprice != null">
+        #{orderTotalprice,jdbcType=DOUBLE},
+      </if>
+      <if test="orderTicketcount != null">
+        #{orderTicketcount,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="movieName != null">
+        #{movieName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

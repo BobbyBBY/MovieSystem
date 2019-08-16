@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.moviesystemmanager"
+        minSdkVersion 26
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'org.projectlombok:lombok:1.16.18'
+    implementation 'com.alibaba:fastjson:1.2.58'
+//    implementation 'com.journeyapps:zxing-android-embedded:3.5.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
+    implementation 'com.google.code.findbugs:jsr305:2.0.1'
+    compileOnly 'javax.annotation:javax.annotation-api:1.2'
+    implementation 'cn.yipianfengye.android:zxing-library:2.2'
+    implementation files('src/main/java/org.apache.commons.httpclient.jar')
+    implementation files('src/main/java/sunjce_provider.jar')
+    implementation 'pub.devrel:easypermissions:0.2.0'
+//    implementation "commons-logging:commons-logging:1.2"
+
+}

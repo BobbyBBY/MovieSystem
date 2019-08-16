@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#dcdcdc"
+        >
+        <EditText
+            android:id="@+id/movie_name_text"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:hint="请输入电影名称"
+            android:maxLength = "10"
+            android:background="@drawable/border_write"
+            />
+        <Button
+            android:id="@+id/search"
+            android:layout_toRightOf="@+id/movie_name_text"
+            android:text="搜索"
+            style="@style/movie_button"
+            />
+        <RadioGroup
+            android:background="#2C7A6A"
+            android:id="@+id/tab_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/movie_name_text"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/tab_item_today"
+                style="@style/tab_menu_item"
+                android:text="正在热映"
+                android:paddingTop="1dp"
+                android:layout_marginBottom="1dp"
+                />
+            <RadioButton
+                android:id="@+id/tab_item_more"
+                style="@style/tab_menu_item"
+                android:text="即将上映"
+                />
+        </RadioGroup>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dcdcdc"
+            android:layout_below="@+id/tab_bar"
+            android:layout_marginTop="15dp"
+            app:srlPrimaryColor="#dcdcdc"
+            app:srlAccentColor="@android:color/white"
+            app:srlEnablePreviewInEditMode="true">
+            <!--srlAccentColor srlPrimaryColor 将会改变 Header 和 Footer 的主题颜色-->
+            <!--srlEnablePreviewInEditMode 可以开启和关闭预览功能-->
+            <ListView
+                android:padding="10dp"
+                android:id="@+id/list_new"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:orientation="vertical"></ListView>
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </RelativeLayout>
+</LinearLayout>

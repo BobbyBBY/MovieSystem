@@ -1,0 +1,61 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="tab_menu_item" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/radio_group_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+    <style name="movie_button" parent="AppTheme">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:background">@drawable/login_button_selector</item>
+    </style>
+    <!-- 返回按钮 -->
+    <style name="back_btn">
+        <item name="android:background">#3C8A7A</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:text">返回</item>
+    </style>
+
+    <!-- activity标题 -->
+    <style name="title">
+        <item name="android:background">#3C8A7A</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+    <!-- 设置内标题栏样式 -->
+    <style name="title_bar_style_setting">
+        <item name="android:background">#3C8A7A</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+    <!--启动页-->
+    <style name="LunchTheme" parent="Theme.AppCompat">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/lunchlogo</item>
+    </style>
+</resources>

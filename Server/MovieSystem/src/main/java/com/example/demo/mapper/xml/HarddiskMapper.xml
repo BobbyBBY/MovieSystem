@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.HarddiskMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Harddisk">
+    <result column="harddisk_id" jdbcType="VARCHAR" property="harddiskId" />
+    <result column="harddisk_filmstudio" jdbcType="VARCHAR" property="harddiskFilmstudio" />
+    <result column="harddisk_decryptiontime" jdbcType="TIMESTAMP" property="harddiskDecryptiontime" />
+    <result column="harddisk_validityduration" jdbcType="INTEGER" property="harddiskValidityduration" />
+    <result column="harddisk_expirationtime" jdbcType="TIMESTAMP" property="harddiskExpirationtime" />
+    <result column="harddisk_password" jdbcType="VARCHAR" property="harddiskPassword" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.demo.pojo.Harddisk">
+    insert into harddisk (harddisk_id, harddisk_filmstudio, harddisk_decryptiontime, 
+      harddisk_validityduration, harddisk_expirationtime, 
+      harddisk_password)
+    values (#{harddiskId,jdbcType=VARCHAR}, #{harddiskFilmstudio,jdbcType=VARCHAR}, #{harddiskDecryptiontime,jdbcType=TIMESTAMP}, 
+      #{harddiskValidityduration,jdbcType=INTEGER}, #{harddiskExpirationtime,jdbcType=TIMESTAMP}, 
+      #{harddiskPassword,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.Harddisk">
+    insert into harddisk
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="harddiskId != null">
+        harddisk_id,
+      </if>
+      <if test="harddiskFilmstudio != null">
+        harddisk_filmstudio,
+      </if>
+      <if test="harddiskDecryptiontime != null">
+        harddisk_decryptiontime,
+      </if>
+      <if test="harddiskValidityduration != null">
+        harddisk_validityduration,
+      </if>
+      <if test="harddiskExpirationtime != null">
+        harddisk_expirationtime,
+      </if>
+      <if test="harddiskPassword != null">
+        harddisk_password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="harddiskId != null">
+        #{harddiskId,jdbcType=VARCHAR},
+      </if>
+      <if test="harddiskFilmstudio != null">
+        #{harddiskFilmstudio,jdbcType=VARCHAR},
+      </if>
+      <if test="harddiskDecryptiontime != null">
+        #{harddiskDecryptiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="harddiskValidityduration != null">
+        #{harddiskValidityduration,jdbcType=INTEGER},
+      </if>
+      <if test="harddiskExpirationtime != null">
+        #{harddiskExpirationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="harddiskPassword != null">
+        #{harddiskPassword,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

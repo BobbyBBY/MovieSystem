@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.OrderTableMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.OrderTable">
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="audience_phone" jdbcType="VARCHAR" property="audiencePhone" />
+    <result column="order_generatedtime" jdbcType="TIMESTAMP" property="orderGeneratedtime" />
+    <result column="order_totalprice" jdbcType="DOUBLE" property="orderTotalprice" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="order_ticketcount" jdbcType="INTEGER" property="orderTicketcount" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.demo.pojo.OrderTable">
+    insert into ordertable (order_id, audience_phone, order_generatedtime, 
+      order_totalprice, order_status, order_ticketcount
+      )
+    values (#{orderId,jdbcType=VARCHAR}, #{audiencePhone,jdbcType=VARCHAR}, #{orderGeneratedtime,jdbcType=TIMESTAMP}, 
+      #{orderTotalprice,jdbcType=DOUBLE}, #{orderStatus,jdbcType=INTEGER}, #{orderTicketcount,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.OrderTable">
+    insert into ordertable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="audiencePhone != null">
+        audience_phone,
+      </if>
+      <if test="orderGeneratedtime != null">
+        order_generatedtime,
+      </if>
+      <if test="orderTotalprice != null">
+        order_totalprice,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="orderTicketcount != null">
+        order_ticketcount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="audiencePhone != null">
+        #{audiencePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="orderGeneratedtime != null">
+        #{orderGeneratedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderTotalprice != null">
+        #{orderTotalprice,jdbcType=DOUBLE},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="orderTicketcount != null">
+        #{orderTicketcount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:background="#DCDCDC"
+        >
+        <RelativeLayout style="@style/title_bar_style_setting"
+            android:id="@+id/webviewTitle"
+            >
+            <Button
+                style="@style/back_btn"
+                android:id="@+id/backBtn"
+                android:textColor="#ffffff"
+                />
+            <TextView
+                style="@style/title"
+                android:id="@+id/webviewTitleText"
+                android:text=""
+                />
+            <Button
+                android:id="@+id/refresh"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="刷新"
+                android:background="#00FF7F"
+                android:textColor="#ffffff"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+        <WebView
+            android:layout_below="@id/webviewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/webView"
+            />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

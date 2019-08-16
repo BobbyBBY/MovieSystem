@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#dcdcdc"
+        >
+        <RelativeLayout style="@style/title_bar_style_setting"
+            android:id="@+id/medicineChestMessageTitle"
+            >
+            <Button
+                style="@style/back_btn"
+                android:id="@+id/backBtn"
+                android:textColor="#ffffff"
+                />
+            <TextView
+                style="@style/title"
+                android:id="@+id/toptitle"
+                android:text="选择座位"
+                />
+            <Button
+                android:id="@+id/save"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="购票"
+                android:background="#00FF7F"
+                android:textColor="#ffffff"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+        <com.example.moviesystemclient.Util.SeatTable
+            android:id="@+id/mSearchView"
+            android:layout_below="@+id/medicineChestMessageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"/>
+
+    </RelativeLayout>
+</LinearLayout>

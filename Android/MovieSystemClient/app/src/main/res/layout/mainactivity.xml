@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.MainActivity"
+    android:background="#F5F5F5"
+    >
+
+    <!--放置到屏幕最低-->
+    <RadioGroup
+        android:background="#2C7A6A"
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="8dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/tab_item_movie"
+            style="@style/tab_menu_item"
+            android:text="电影"
+            android:paddingTop="1dp"
+            android:layout_marginBottom="1dp"
+            />
+        <RadioButton
+            android:id="@+id/tab_item_order"
+            style="@style/tab_menu_item"
+            android:text="订单"
+            />
+        <RadioButton
+            android:id="@+id/tab_item_mine"
+            style="@style/tab_menu_item"
+            android:text="我的"
+            />
+
+    </RadioGroup>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/tab_bar"
+        >
+
+    </android.support.v4.view.ViewPager>
+</RelativeLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ScreeningViewMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.ScreeningView">
+    <result column="movie_name" jdbcType="VARCHAR" property="movieName" />
+    <result column="movie_duration" jdbcType="INTEGER" property="movieDuration" />
+    <result column="movie_id" jdbcType="VARCHAR" property="movieId" />
+    <result column="screening_id" jdbcType="INTEGER" property="screeningId" />
+    <result column="screening_price" jdbcType="DOUBLE" property="screeningPrice" />
+    <result column="screening_starttime" jdbcType="TIMESTAMP" property="screeningStarttime" />
+    <result column="screening_specialeffect" jdbcType="INTEGER" property="screeningSpecialeffect" />
+    <result column="screeningroom_name" jdbcType="VARCHAR" property="screeningroomName" />
+    <result column="screeningroom_id" jdbcType="INTEGER" property="screeningroomId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.demo.pojo.ScreeningView">
+    insert into screening_view (movie_name, movie_duration, movie_id, 
+      screening_id, screening_price, screening_starttime, 
+      screening_specialeffect, screeningroom_name, 
+      screeningroom_id)
+    values (#{movieName,jdbcType=VARCHAR}, #{movieDuration,jdbcType=INTEGER}, #{movieId,jdbcType=VARCHAR}, 
+      #{screeningId,jdbcType=INTEGER}, #{screeningPrice,jdbcType=DOUBLE}, #{screeningStarttime,jdbcType=TIMESTAMP}, 
+      #{screeningSpecialeffect,jdbcType=INTEGER}, #{screeningroomName,jdbcType=VARCHAR}, 
+      #{screeningroomId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.ScreeningView">
+    insert into screening_view
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="movieName != null">
+        movie_name,
+      </if>
+      <if test="movieDuration != null">
+        movie_duration,
+      </if>
+      <if test="movieId != null">
+        movie_id,
+      </if>
+      <if test="screeningId != null">
+        screening_id,
+      </if>
+      <if test="screeningPrice != null">
+        screening_price,
+      </if>
+      <if test="screeningStarttime != null">
+        screening_starttime,
+      </if>
+      <if test="screeningSpecialeffect != null">
+        screening_specialeffect,
+      </if>
+      <if test="screeningroomName != null">
+        screeningroom_name,
+      </if>
+      <if test="screeningroomId != null">
+        screeningroom_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="movieName != null">
+        #{movieName,jdbcType=VARCHAR},
+      </if>
+      <if test="movieDuration != null">
+        #{movieDuration,jdbcType=INTEGER},
+      </if>
+      <if test="movieId != null">
+        #{movieId,jdbcType=VARCHAR},
+      </if>
+      <if test="screeningId != null">
+        #{screeningId,jdbcType=INTEGER},
+      </if>
+      <if test="screeningPrice != null">
+        #{screeningPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="screeningStarttime != null">
+        #{screeningStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="screeningSpecialeffect != null">
+        #{screeningSpecialeffect,jdbcType=INTEGER},
+      </if>
+      <if test="screeningroomName != null">
+        #{screeningroomName,jdbcType=VARCHAR},
+      </if>
+      <if test="screeningroomId != null">
+        #{screeningroomId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

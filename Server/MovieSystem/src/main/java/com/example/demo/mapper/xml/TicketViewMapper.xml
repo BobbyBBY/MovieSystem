@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.TicketViewMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.TicketView">
+    <result column="ticket_id" jdbcType="VARCHAR" property="ticketId" />
+    <result column="ticket_status" jdbcType="INTEGER" property="ticketStatus" />
+    <result column="seat_name" jdbcType="VARCHAR" property="seatName" />
+    <result column="screeningroom_name" jdbcType="VARCHAR" property="screeningroomName" />
+    <result column="screening_price" jdbcType="DOUBLE" property="screeningPrice" />
+    <result column="screening_starttime" jdbcType="TIMESTAMP" property="screeningStarttime" />
+    <result column="screening_specialeffect" jdbcType="INTEGER" property="screeningSpecialeffect" />
+    <result column="movie_name" jdbcType="VARCHAR" property="movieName" />
+    <result column="movie_duration" jdbcType="INTEGER" property="movieDuration" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.demo.pojo.TicketView">
+    insert into ticket_view (ticket_id, ticket_status, seat_name, 
+      screeningroom_name, screening_price, screening_starttime, 
+      screening_specialeffect, movie_name, movie_duration, 
+      order_id)
+    values (#{ticketId,jdbcType=VARCHAR}, #{ticketStatus,jdbcType=INTEGER}, #{seatName,jdbcType=VARCHAR}, 
+      #{screeningroomName,jdbcType=VARCHAR}, #{screeningPrice,jdbcType=DOUBLE}, #{screeningStarttime,jdbcType=TIMESTAMP}, 
+      #{screeningSpecialeffect,jdbcType=INTEGER}, #{movieName,jdbcType=VARCHAR}, #{movieDuration,jdbcType=INTEGER}, 
+      #{orderId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.TicketView">
+    insert into ticket_view
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ticketId != null">
+        ticket_id,
+      </if>
+      <if test="ticketStatus != null">
+        ticket_status,
+      </if>
+      <if test="seatName != null">
+        seat_name,
+      </if>
+      <if test="screeningroomName != null">
+        screeningroom_name,
+      </if>
+      <if test="screeningPrice != null">
+        screening_price,
+      </if>
+      <if test="screeningStarttime != null">
+        screening_starttime,
+      </if>
+      <if test="screeningSpecialeffect != null">
+        screening_specialeffect,
+      </if>
+      <if test="movieName != null">
+        movie_name,
+      </if>
+      <if test="movieDuration != null">
+        movie_duration,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ticketId != null">
+        #{ticketId,jdbcType=VARCHAR},
+      </if>
+      <if test="ticketStatus != null">
+        #{ticketStatus,jdbcType=INTEGER},
+      </if>
+      <if test="seatName != null">
+        #{seatName,jdbcType=VARCHAR},
+      </if>
+      <if test="screeningroomName != null">
+        #{screeningroomName,jdbcType=VARCHAR},
+      </if>
+      <if test="screeningPrice != null">
+        #{screeningPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="screeningStarttime != null">
+        #{screeningStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="screeningSpecialeffect != null">
+        #{screeningSpecialeffect,jdbcType=INTEGER},
+      </if>
+      <if test="movieName != null">
+        #{movieName,jdbcType=VARCHAR},
+      </if>
+      <if test="movieDuration != null">
+        #{movieDuration,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

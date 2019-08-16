@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.TicketMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Ticket">
+    <result column="ticket_id" jdbcType="VARCHAR" property="ticketId" />
+    <result column="seat_id" jdbcType="INTEGER" property="seatId" />
+    <result column="screening_id" jdbcType="INTEGER" property="screeningId" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="ticket_status" jdbcType="INTEGER" property="ticketStatus" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.demo.pojo.Ticket">
+    insert into ticket (ticket_id, seat_id, screening_id, 
+      order_id, ticket_status)
+    values (#{ticketId,jdbcType=VARCHAR}, #{seatId,jdbcType=INTEGER}, #{screeningId,jdbcType=INTEGER}, 
+      #{orderId,jdbcType=VARCHAR}, #{ticketStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.Ticket">
+    insert into ticket
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ticketId != null">
+        ticket_id,
+      </if>
+      <if test="seatId != null">
+        seat_id,
+      </if>
+      <if test="screeningId != null">
+        screening_id,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="ticketStatus != null">
+        ticket_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ticketId != null">
+        #{ticketId,jdbcType=VARCHAR},
+      </if>
+      <if test="seatId != null">
+        #{seatId,jdbcType=INTEGER},
+      </if>
+      <if test="screeningId != null">
+        #{screeningId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="ticketStatus != null">
+        #{ticketStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

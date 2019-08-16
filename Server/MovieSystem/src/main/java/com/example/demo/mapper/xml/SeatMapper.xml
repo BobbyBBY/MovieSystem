@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.SeatMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Seat">
+    <result column="seat_id" jdbcType="INTEGER" property="seatId" />
+    <result column="screeningroom_id" jdbcType="INTEGER" property="screeningroomId" />
+    <result column="seat_location" jdbcType="VARCHAR" property="seatLocation" />
+    <result column="seat_name" jdbcType="VARCHAR" property="seatName" />
+    <result column="seat_status" jdbcType="INTEGER" property="seatStatus" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.demo.pojo.Seat">
+    insert into seat (seat_id, screeningroom_id, seat_location, 
+      seat_name, seat_status)
+    values (#{seatId,jdbcType=INTEGER}, #{screeningroomId,jdbcType=INTEGER}, #{seatLocation,jdbcType=VARCHAR}, 
+      #{seatName,jdbcType=VARCHAR}, #{seatStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.pojo.Seat">
+    insert into seat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seatId != null">
+        seat_id,
+      </if>
+      <if test="screeningroomId != null">
+        screeningroom_id,
+      </if>
+      <if test="seatLocation != null">
+        seat_location,
+      </if>
+      <if test="seatName != null">
+        seat_name,
+      </if>
+      <if test="seatStatus != null">
+        seat_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seatId != null">
+        #{seatId,jdbcType=INTEGER},
+      </if>
+      <if test="screeningroomId != null">
+        #{screeningroomId,jdbcType=INTEGER},
+      </if>
+      <if test="seatLocation != null">
+        #{seatLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="seatName != null">
+        #{seatName,jdbcType=VARCHAR},
+      </if>
+      <if test="seatStatus != null">
+        #{seatStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

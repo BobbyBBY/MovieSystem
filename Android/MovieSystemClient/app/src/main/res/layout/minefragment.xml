@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#dcdcdc"
+        >
+        <TextView
+            android:id="@+id/loginphone"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:textSize="15dp"
+            android:text="当前没有登陆"
+            />
+        <EditText
+            android:layout_below="@+id/loginphone"
+            android:id="@+id/phone"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:hint="请输入手机号"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border_write"
+            />
+        <EditText
+            android:id="@+id/vn"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:hint="请输入验证码"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/phone"
+            android:background="@drawable/border_write"
+            />
+        <Button
+            android:id="@+id/phonecode"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:text="获取手机验证码"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/vn"
+            />
+        <Button
+            android:id="@+id/save"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:text="注册/登陆"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/phonecode"
+            />
+    </RelativeLayout>
+
+</LinearLayout>
